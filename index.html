@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="웹 퍼블리셔 권새롬의 포트폴리오" />
+    <title>권새롬 - Web Publisher Portfolio</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="shortcut icon" href="img/favicon-32x32.png">
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <!-- Fonts for English -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Ephesis&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Pretendard for Korean -->
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css"
+    />
+
+    <script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+      <div class="loader">
+        <div class="loader-text">
+          <span>S</span><span>E</span><span>R</span><span>O</span><span>U</span
+          ><span>M</span>
+        </div>
+        <div class="loader-progress">
+          <div class="loader-progress-bar"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Navigation -->
+    <header class="header">
+      <nav class="navbar">
+        <div class="nav-container">
+          <div class="nav-logo">
+            <h1>
+              <a href="index.html"
+                ><img src="img/권새롬-뉴-로고_white.png"
+              /></a>
+            </h1>
+          </div>
+          <ul class="nav-menu">
+            <li><a href="#home" class="nav-link font-english">Home</a></li>
+            <li><a href="#about" class="nav-link font-english">About</a></li>
+            <li>
+              <a href="#services" class="nav-link font-english">Services</a>
+            </li>
+            <li><a href="#logo" class="nav-link font-english">Logo</a></li>
+            <li><a href="#projects" class="nav-link font-english">Work</a></li>
+            <li>
+              <a href="#contact" class="nav-link font-english">Contact</a>
+            </li>
+          </ul>
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section id="home" class="hero">
+        <div class="hero-bg">
+          <video autoplay muted loop playsinline class="hero-video">
+            <source src="img/visual.mp4" type="video/mp4" />
+            <!-- Fallback for browsers that don't support video -->
+          </video>
+          <div class="video-overlay"></div>
+          <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+          </div>
+        </div>
+        <div class="hero-content">
+          <div class="hero-text">
+            <div class="hero-greeting">
+              <span class="typing-text font-english"
+                >Digital Experience Designer</span
+              >
+            </div>
+            <h1 class="hero-title">
+              <span class="name-highlight font-korean">권새롬</span>
+              <span class="title-line font-english">Web Publisher</span>
+            </h1>
+            <p class="hero-description font-korean">
+              사용자 중심의 디지털 경험을 설계하고 구현합니다.
+              <br />혁신적인 웹 솔루션으로 브랜드 가치를 극대화합니다.
+            </p>
+            <div class="hero-cta">
+              <a href="#projects" class="btn btn-primary font-english">
+                <span>Work</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+              <a href="#contact" class="btn btn-outline font-english">
+                <span>Contact</span>
+                <i class="fas fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="profile-card">
+              <div class="profile-image">
+                <img src="img/picture.JPG" alt="권새롬 프로필 사진" />
+              </div>
+              <div class="profile-info">
+                <h3 class="font-korean">권새롬</h3>
+                <p class="font-english">Kwon Saerom</p>
+                <div class="social-links">
+                  <a href="https://github.com/rhdtls3562/"
+                    ><i class="fab fa-github"></i
+                  ></a>
+                  <a href="https://open.kakao.com/o/shy82g3g"
+                    ><i class="fa-solid fa-comment"></i
+                  ></a>
+                  <a href="mailto:rhdtls3562@naver.com"
+                    ><i class="fas fa-envelope"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="scroll-indicator">
+          <div class="mouse">
+            <div class="mouse-wheel"></div>
+          </div>
+          <p>Scroll</p>
+        </div>
+      </section>
+
+      <!-- Logo Section -->
+      <section id="logo" class="logo">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag font-english">Identity</span>
+            <h2 class="section-title font-english">Logo Design</h2>
+            <p class="section-subtitle font-korean">
+              새로움을 상징하는 아이덴티티 디자인
+            </p>
+          </div>
+          <div class="logo-content">
+            <!-- Logo Hero Layout -->
+            <div class="logo-hero-layout">
+              <!-- Left Side - Logo Display -->
+              <div class="logo-showcase">
+                <div class="logo-main">
+                  <div class="logo-circle">
+                    <img
+                      src="img/권새롬-뉴-로고.png"
+                      alt="권새롬 로고"
+                      class="logo-image"
+                    />
+                  </div>
+                  <div class="logo-reflection"></div>
+                </div>
+                <div class="logo-info">
+                  <div class="brand-keywords">
+                    <span class="keyword-badge font-korean">탁월성</span>
+                    <span class="keyword-badge font-korean">혁신성</span>
+                    <span class="keyword-badge font-korean">전문성</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Side - Story Content -->
+              <div class="logo-story">
+                <div class="story-section">
+                  <div class="story-number">01</div>
+                  <h4 class="story-title font-english">Design Philosophy</h4>
+                  <p class="story-content font-korean">
+                    '새롬'이라는 이름에 내재된 '새로움'의 본질적 의미를 시각적
+                    언어로 구현했습니다. 이니셜 'SR'을 기반으로 백조의 우아한
+                    곡선미를 조화롭게 융합하여, 표면의 완벽함 뒤에 숨겨진
+                    끊임없는 혁신 의지를 은유적으로 표현했습니다. 이는 차별화된
+                    브랜드 가치와 지속적인 성장 동력을 시각화한 결과물입니다.
+                  </p>
+                </div>
+
+                <div class="story-section">
+                  <div class="story-number">02</div>
+                  <h4 class="story-title font-english">Brand Architecture</h4>
+                  <p class="story-content font-korean">
+                    타이포그래피와 심볼의 균형적 구성을 통해 현대적 미니멀리즘을
+                    추구했습니다. 기하학적 정확성과 유기적 형태의 조화를 통해
+                    브랜드의 전문성과 접근성을 동시에 구현했으며, 다양한 미디어
+                    환경에서의 확장성과 인식성을 극대화한 확장 가능한 아이덴티티
+                    시스템을 구축했습니다.
+                  </p>
+                </div>
+
+                <div class="story-section">
+                  <div class="story-number">03</div>
+                  <h4 class="story-title font-english">Visual Legacy</h4>
+                  <p class="story-content font-korean">
+                    단순한 브랜드 마크를 넘어선 전략적 비주얼 자산으로서의
+                    역할을 수행합니다. 혁신적 사고와 완벽주의적 실행력이라는
+                    핵심 가치를 시각적으로 각인시키며, 미래 지향적 비전과 전문적
+                    역량을 상징하는 강력한 브랜드 레거시를 구축하여 지속 가능한
+                    브랜드 경쟁력의 기반을 마련했습니다.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="about">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag font-english">About</span>
+            <h2 class="section-title font-english">Creative Solutions</h2>
+            <p class="section-subtitle font-korean">
+              전략적 사고와 창의적 실행력을 바탕으로 한 디지털 솔루션
+            </p>
+          </div>
+          <div class="about-content">
+            <div class="about-text">
+              <div class="text-block">
+                <h3>Professional Approach</h3>
+                <p>
+                  사용자 경험을 중심으로 한 전략적 접근을 통해 브랜드의 디지털
+                  존재감을 강화합니다. 최신 기술과 디자인 트렌드를 활용하여
+                  차별화된 웹 솔루션을 제공합니다.
+                </p>
+              </div>
+              <div class="text-block">
+                <h3>Core Values</h3>
+                <p>
+                  완벽함을 추구하는 디테일에 대한 집착과 끊임없는 혁신을 통해
+                  클라이언트의 비즈니스 목표 달성을 지원합니다.
+                </p>
+              </div>
+              <div class="skills-preview">
+                <h4>Core Skills</h4>
+                <div class="skill-tags">
+                  <span class="skill-tag">HTML5</span>
+                  <span class="skill-tag">CSS3</span>
+                  <span class="skill-tag">JavaScript</span>
+                  <span class="skill-tag">React</span>
+                  <span class="skill-tag">tailwind</span>
+                  <span class="skill-tag">UI/UX Design</span>
+                </div>
+              </div>
+            </div>
+            <div class="about-stats">
+              <div class="stat-item">
+                <div class="stat-number" data-target="25">0</div>
+                <div class="stat-label">Age</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number" data-target="50">0</div>
+                <div class="stat-label">Completed Projects</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number" data-target="6">0</div>
+                <div class="stat-label">Work Experience</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number" data-target="100">0</div>
+                <div class="stat-label">Satisfaction</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services Section -->
+      <section id="services" class="services">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag font-english">Services</span>
+            <h2 class="section-title font-english">What I Do</h2>
+            <p class="section-subtitle font-korean">
+              전문적이고 체계적인 디지털 솔루션 서비스
+            </p>
+          </div>
+          <div class="services-grid">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-code"></i>
+              </div>
+              <h3>Web Development</h3>
+              <p>
+                최신 웹 표준과 최적화된 코드로 완성도 높은 웹사이트를
+                구축합니다.
+              </p>
+              <ul class="service-features">
+                <li>HTML5/CSS3 표준 코딩</li>
+                <li>반응형 웹 구현</li>
+                <li>웹 접근성 준수</li>
+                <li>크로스 브라우징</li>
+              </ul>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-mobile-alt"></i>
+              </div>
+              <h3>Responsive Design</h3>
+              <p>
+                모든 디바이스에서 최적의 사용자 경험을 제공하는 반응형 디자인을
+                구현합니다.
+              </p>
+              <ul class="service-features">
+                <li>모바일 퍼스트 접근</li>
+                <li>플렉시블 그리드 시스템</li>
+                <li>터치 인터페이스 최적화</li>
+                <li>성능 최적화</li>
+              </ul>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-palette"></i>
+              </div>
+              <h3>UI/UX Implementation</h3>
+              <p>
+                사용자 중심의 인터페이스 설계와 직관적인 사용자 경험을
+                구현합니다.
+              </p>
+              <ul class="service-features">
+                <li>사용자 중심 설계</li>
+                <li>인터랙션 디자인</li>
+                <li>프로토타이핑</li>
+                <li>사용성 테스트</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section id="experience" class="experience">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">경력</span>
+            <h2 class="section-title">Experience</h2>
+            <p class="section-subtitle">저의 성장 과정과 경험을 소개합니다</p>
+          </div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-date">재직중</div>
+              <div class="timeline-content">
+                <div class="timeline-company">쉐브론</div>
+                <div class="timeline-position">프리랜서 디자이너</div>
+                <div class="timeline-description">
+                  아모레,LG 서비스의 UI/UX 디자인과 반응형 웹 퍼블리싱을
+                  담당했습니다. 사용자의 편의성을 고려한 인터페이스 설계에
+                  집중했습니다.
+                </div>
+                <div class="timeline-skills">
+                  <span>UI/UX Design</span>
+                  <span>Responsive Web</span>
+                  <span>User Research</span>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2023.11</div>
+              <div class="timeline-content">
+                <div class="timeline-company">(주)피알몽땅</div>
+                <div class="timeline-position">디자인 부서 대리</div>
+                <div class="timeline-description">
+                  브랜드 아이덴티티 설계부터 웹사이트 퍼블리싱까지 전체적인
+                  디자인 프로세스를 담당하며 팀을 리드했습니다.
+                </div>
+                <div class="timeline-skills">
+                  <span>Brand Design</span>
+                  <span>Web Publishing</span>
+                  <span>Team Leading</span>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2023.01</div>
+              <div class="timeline-content">
+                <div class="timeline-company">엔클레어</div>
+                <div class="timeline-position">프리랜서 디자이너</div>
+                <div class="timeline-description">
+                  뷰티 브랜드의 온라인 마케팅 컨텐츠와 웹 페이지 디자인을
+                  담당했습니다. 브랜드의 아이덴티티를 웹에 효과적으로
+                  반영했습니다.
+                </div>
+                <div class="timeline-skills">
+                  <span>Marketing Design</span>
+                  <span>Brand Identity</span>
+                  <span>Web Design</span>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2020.01</div>
+              <div class="timeline-content">
+                <div class="timeline-company">LITstudio</div>
+                <div class="timeline-position">그래픽 디자이너</div>
+                <div class="timeline-description">
+                  종합적인 비주얼 디자인 솔루션을 제공하며 웹사이트부터 인쇄물까지 
+                  다양한 매체의 브랜드 아이덴티티 구축을 담당했습니다. 클라이언트의 
+                  브랜드 가치를 효과적으로 전달하는 디자인 전략을 수립하고 실행했습니다.
+                </div>
+                <div class="timeline-skills">
+                  <span>Brand Identity</span>
+                  <span>Print Design</span>
+                  <span>Logo Design</span>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2019.09</div>
+              <div class="timeline-content">
+                <div class="timeline-company">수디자인광고기획</div>
+                <div class="timeline-position">옥외광고디자이너</div>
+                <div class="timeline-description">
+                  다양한 클라이언트의 웹사이트 옥외광고 디자인을 담당하며 실무
+                  경험을 쌓았습니다.
+                </div>
+                <div class="timeline-skills">
+                  <span>Web Design</span>
+                  <span>Photoshop/Illastrator</span>
+                  <span>Client Work</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="projects">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">포트폴리오</span>
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">
+              제가 작업한 주요 프로젝트들을 소개합니다
+            </p>
+          </div>
+
+          <div class="projects-grid">
+            <!-- 웹사이트 프로젝트 -->
+            <div class="project-card" data-category="web">
+              <div class="project-image">
+                <img src="img/socilize.jpg" alt="Socialize 소셜 플랫폼" />
+                <div class="project-overlay">
+                  <div class="project-links">
+                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                    <a href="#" class="project-link"><i class="fas fa-search-plus"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="project-info">
+                <h3>Socialize 소셜 플랫폼</h3>
+                <p>소셜 네트워킹 서비스 웹사이트 UI/UX 디자인 및 퍼블리싱</p>
+                <div class="project-tech">
+                  <span>HTML5</span>
+                  <span>CSS3</span>
+                  <span>JavaScript</span>
+                  <span>Responsive</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card" data-category="web">
+              <div class="project-image">
+                <img src="img/binggo_pc.png" alt="Binggo PC 게임 플랫폼" />
+                <div class="project-overlay">
+                  <div class="project-links">
+                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                    <a href="#" class="project-link"><i class="fas fa-search-plus"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="project-info">
+                <h3>Binggo PC 게임 플랫폼</h3>
+                <p>온라인 게임 플랫폼 웹사이트 디자인 및 개발</p>
+                <div class="project-tech">
+                  <span>Web Design</span>
+                  <span>UI/UX</span>
+                  <span>Gaming Interface</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card" data-category="web">
+              <div class="project-image">
+                <img src="img/academy_logo.jpg" alt="학원 홈페이지" />
+                <div class="project-overlay">
+                  <div class="project-links">
+                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                    <a href="#" class="project-link"><i class="fas fa-search-plus"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="project-info">
+                <h3>학원 홈페이지</h3>
+                <p>교육기관 홈페이지 디자인 및 반응형 퍼블리싱</p>
+                <div class="project-tech">
+                  <span>Web Design</span>
+                  <span>HTML/CSS</span>
+                  <span>Responsive</span>
+                  <span>Educational</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card" data-category="web">
+              <div class="project-image">
+                <img src="img/27.jpg" alt="서연성형외과 홈페이지" />
+                <div class="project-overlay">
+                  <div class="project-links">
+                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                    <a href="#" class="project-link"><i class="fas fa-search-plus"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="project-info">
+                <h3>서연성형외과 홈페이지</h3>
+                <p>의료기관 홈페이지 디자인 및 UI/UX 개발</p>
+                <div class="project-tech">
+                  <span>Medical Web</span>
+                  <span>UI/UX</span>
+                  <span>Responsive</span>
+                  <span>Healthcare</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 브랜딩 프로젝트 -->
+            <div class="project-card" data-category="brand">
+              <div class="project-image">
+                <img src="img/akj_logo.jpg" alt="AKJ 아카데미 브랜드" />
+                <div class="project-overlay">
+                  <div class="project-links">
+                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                    <a href="#" class="project-link"><i class="fas fa-search-plus"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="project-info">
+                <h3>AKJ 아카데미 브랜드</h3>
+                <p>교육기관 로고 및 브랜드 아이덴티티 디자인</p>
+                <div class="project-tech">
+                  <span>Illustrator</span>
+                  <span>Logo Design</span>
+                  <span>Brand Identity</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card" data-category="brand">
+              <div class="project-image">
+                <img src="img/bekerry_logo.jpg" alt="Bekerry 제과점 브랜드" />
+                <div class="project-overlay">
+                  <div class="project-links">
+                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                    <a href="#" class="project-link"><i class="fas fa-search-plus"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="project-info">
+                <h3>Bekerry 제과점 브랜드</h3>
+                <p>제과제빵 브랜드 로고 및 패키지 디자인</p>
+                <div class="project-tech">
+                  <span>Illustrator</span>
+                  <span>Package Design</span>
+                  <span>Brand Strategy</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card" data-category="brand">
+              <div class="project-image">
+                <img src="img/prmongttang.jpg" alt="PR몽땅 기업 브랜딩" />
+                <div class="project-overlay">
+                  <div class="project-links">
+                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                    <a href="#" class="project-link"><i class="fas fa-search-plus"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="project-info">
+                <h3>PR몽땅 기업 브랜딩</h3>
+                <p>마케팅 에이전시 브랜드 디자인 및 회사 소개서</p>
+                <div class="project-tech">
+                  <span>Corporate Design</span>
+                  <span>Brand Identity</span>
+                  <span>Marketing</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 디자인 프로젝트 -->
+            <div class="project-card" data-category="design">
+              <div class="project-image">
+                <img src="img/coffe_logo.jpg" alt="커피 로고 디자인" />
+                <div class="project-overlay">
+                  <div class="project-links">
+                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                    <a href="#" class="project-link"><i class="fas fa-search-plus"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="project-info">
+                <h3>Coffee Logo Design</h3>
+                <p>카페 브랜드 로고 디자인</p>
+                <div class="project-tech">
+                  <span>Logo Design</span>
+                  <span>Brand Identity</span>
+                  <span>Typography</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card" data-category="design">
+              <div class="project-image">
+                <img src="img/flower_logo.jpg" alt="플라워 로고 디자인" />
+                <div class="project-overlay">
+                  <div class="project-links">
+                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                    <a href="#" class="project-link"><i class="fas fa-search-plus"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="project-info">
+                <h3>Floral Logo Design</h3>
+                <p>플라워샵 브랜드 로고 디자인</p>
+                <div class="project-tech">
+                  <span>Floral Design</span>
+                  <span>Natural Theme</span>
+                  <span>Logo Design</span>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="project-card" data-category="design">
+              <div class="project-image">
+                <img src="img/academy_logo.jpg" alt="아카데미 로고" />
+                <div class="project-overlay">
+                  <div class="project-links">
+                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                    <a href="#" class="project-link"><i class="fas fa-search-plus"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="project-info">
+                <h3>Academy Logo Design</h3>
+                <p>교육기관 로고 및 브랜드 아이덴티티</p>
+                <div class="project-tech">
+                  <span>Educational Branding</span>
+                  <span>Logo Design</span>
+                  <span>Professional Identity</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card" data-category="design">
+              <div class="project-image">
+                <img src="img/23.jpg" alt="그래픽 디자인 포트폴리오" />
+                <div class="project-overlay">
+                  <div class="project-links">
+                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                    <a href="#" class="project-link"><i class="fas fa-search-plus"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="project-info">
+                <h3>Graphic Design Portfolio</h3>
+                <p>창의적 그래픽 디자인 작업물</p>
+                <div class="project-tech">
+                  <span>Graphic Design</span>
+                  <span>Creative Design</span>
+                  <span>Visual Art</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card" data-category="design">
+              <div class="project-image">
+                <img src="img/18.jpg" alt="디자인 포트폴리오" />
+                <div class="project-overlay">
+                  <div class="project-links">
+                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                    <a href="#" class="project-link"><i class="fas fa-search-plus"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="project-info">
+                <h3>Visual Design Collection</h3>
+                <p>비주얼 디자인 작업 컬렉션</p>
+                <div class="project-tech">
+                  <span>Visual Design</span>
+                  <span>Layout Design</span>
+                  <span>Creative Direction</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card" data-category="brand">
+              <div class="project-image">
+                <img src="img/prmongttang.jpg" alt="피알몽땅 브랜드" />
+                <div class="project-overlay">
+                  <div class="project-links">
+                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                    <a href="#" class="project-link"><i class="fas fa-search-plus"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="project-info">
+                <h3>PR몽땅 Brand Project</h3>
+                <p>마케팅 에이전시 브랜드 디자인 프로젝트</p>
+                <div class="project-tech">
+                  <span>Corporate Design</span>
+                  <span>Marketing Design</span>
+                  <span>Brand Strategy</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="skills">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">기술</span>
+            <h2 class="section-title">Skills & Tools</h2>
+            <p class="section-subtitle">제가 다루는 기술과 도구들입니다</p>
+          </div>
+          <div class="skills-content">
+            <div class="skills-categories">
+              <div class="skill-category">
+                <h3>Frontend</h3>
+                <div class="skill-list">
+                  <div class="skill-item">
+                    <div class="skill-info">
+                      <span class="skill-name">HTML5</span>
+                      <span class="skill-percent">95%</span>
+                    </div>
+                    <div class="skill-bar">
+                      <div class="skill-progress" data-width="95"></div>
+                    </div>
+                  </div>
+                  <div class="skill-item">
+                    <div class="skill-info">
+                      <span class="skill-name">CSS3</span>
+                      <span class="skill-percent">90%</span>
+                    </div>
+                    <div class="skill-bar">
+                      <div class="skill-progress" data-width="90"></div>
+                    </div>
+                  </div>
+                  <div class="skill-item">
+                    <div class="skill-info">
+                      <span class="skill-name">JavaScript</span>
+                      <span class="skill-percent">85%</span>
+                    </div>
+                    <div class="skill-bar">
+                      <div class="skill-progress" data-width="85"></div>
+                    </div>
+                  </div>
+                  <div class="skill-item">
+                    <div class="skill-info">
+                      <span class="skill-name">JQuery</span>
+                      <span class="skill-percent">80%</span>
+                    </div>
+                    <div class="skill-bar">
+                      <div class="skill-progress" data-width="80"></div>
+                    </div>
+                  </div>
+                  <div class="skill-item">
+                    <div class="skill-info">
+                      <span class="skill-name">React</span>
+                      <span class="skill-percent">75%</span>
+                    </div>
+                    <div class="skill-bar">
+                      <div class="skill-progress" data-width="75"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="skill-category">
+                <h3>Design Tools</h3>
+                <div class="skill-list">
+                  <div class="skill-item">
+                    <div class="skill-info">
+                      <span class="skill-name">Photoshop</span>
+                      <span class="skill-percent">90%</span>
+                    </div>
+                    <div class="skill-bar">
+                      <div class="skill-progress" data-width="90"></div>
+                    </div>
+                  </div>
+                  <div class="skill-item">
+                    <div class="skill-info">
+                      <span class="skill-name">Illustrator</span>
+                      <span class="skill-percent">85%</span>
+                    </div>
+                    <div class="skill-bar">
+                      <div class="skill-progress" data-width="85"></div>
+                    </div>
+                  </div>
+                  <div class="skill-item">
+                    <div class="skill-info">
+                      <span class="skill-name">Indesign</span>
+                      <span class="skill-percent">82%</span>
+                    </div>
+                    <div class="skill-bar">
+                      <div class="skill-progress" data-width="82"></div>
+                    </div>
+                  </div>
+                  <div class="skill-item">
+                    <div class="skill-info">
+                      <span class="skill-name">Figma</span>
+                      <span class="skill-percent">88%</span>
+                    </div>
+                    <div class="skill-bar">
+                      <div class="skill-progress" data-width="88"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tools-grid">
+              <div class="tool-item">
+                <i class="fab fa-html5"></i>
+                <span>HTML5</span>
+              </div>
+              <div class="tool-item">
+                <i class="fab fa-css3-alt"></i>
+                <span>CSS3</span>
+              </div>
+              <div class="tool-item">
+                <i class="fab fa-js"></i>
+                <span>JavaScript</span>
+              </div>
+              <div class="tool-item">
+                <i class="fas fa-code"></i>
+                <span>JQuery</span>
+              </div>
+              <div class="tool-item">
+                <i class="fab fa-react"></i>
+                <span>React</span>
+              </div>
+              <div class="tool-item">
+                <i class="fas fa-paint-brush"></i>
+                <span>Photoshop</span>
+              </div>
+              <div class="tool-item">
+                <i class="fas fa-vector-square"></i>
+                <span>Illustrator</span>
+              </div>
+              <div class="tool-item">
+                <i class="fas fa-file-alt"></i>
+                <span>Indesign</span>
+              </div>
+              <div class="tool-item">
+                <i class="fab fa-git-alt"></i>
+                <span>Git</span>
+              </div>
+              <div class="tool-item">
+                <i class="fab fa-figma"></i>
+                <span>Figma</span>
+              </div>
+              <div class="tool-item">
+                <i class="fas fa-wind"></i>
+                <span>Tailwind</span>
+              </div>
+              <div class="tool-item">
+                <i class="fab fa-bootstrap"></i>
+                <span>Bootstrap</span>
+              </div>
+             
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials Section -->
+      <section class="testimonials">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">추천사</span>
+            <h2 class="section-title">What People Say</h2>
+            <p class="section-subtitle">함께 일한 분들의 평가입니다</p>
+          </div>
+          <div class="testimonials-slider">
+            <div class="testimonial-item">
+              <div class="testimonial-content">
+                <p>
+                  "새롬님은 나이는 어리지만 나이에 못지 않은 책임감을 가지고 팀원들과 협업을 중요시 하며 특히 문제가 생기면 해당 문제에 책임감을 가지고 일을 완수하는 추진력과 빠른 속도를 가지고 있습니다."
+                </p>
+              </div>
+              <div class="testimonial-author">
+                <div class="author-info">
+                  <h4>민두홍</h4>
+                  <span>디자이너</span>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-item">
+              <div class="testimonial-content">
+                <p>
+                  "원하는 홈페이지를 만들어주는 디자이너입니다. 디자인 뿐만 아니라 홈페이지 퍼블리싱 까지 꼼꼼하고 특히 미세한 부분까지 잘 체크해 주시는게 큰 장점입니다. 또 같이 작업하고 싶은 디자이너입니다."
+                </p>
+              </div>
+              <div class="testimonial-author">
+                <div class="author-info">
+                  <h4>장재영</h4>
+                  <span>프로젝트 매니저</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="contact">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">Contact</span>
+            <h2 class="section-title">Let's Work Together</h2>
+            <p class="section-subtitle">
+              프로젝트에 대한 문의나 협업 제안을 환영합니다
+            </p>
+          </div>
+          <div class="contact-content">
+            <div class="contact-info">
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-details">
+                  <h3>Email</h3>
+                  <p>rhdtls3562@naver.com</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div class="contact-details">
+                  <h3>Phone</h3>
+                  <p>+82 10-7906-3994</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-details">
+                  <h3>Location</h3>
+                  <p>서울시 강서구 화곡동</p>
+                </div>
+              </div>
+            </div>
+            <div class="contact-form">
+              <h3>프로젝트 문의</h3>
+              <form id="contact-form">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-input"
+                    name="from_name"
+                    placeholder="이름"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    type="email"
+                    class="form-input"
+                    name="from_email"
+                    placeholder="이메일"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-input"
+                    name="subject"
+                    placeholder="제목"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <textarea
+                    class="form-input"
+                    name="message"
+                    rows="5"
+                    placeholder="메시지"
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" id="submit-btn">
+                  <span>Send Message</span>
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+              </form>
+              <div id="form-status" class="form-status"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-info">
+            <h3>SEROUM</h3>
+            <p>혁신적인 디지털 경험을 통해 브랜드의 가치를 창조합니다.</p>
+            <div class="social-links">
+              <a href="https://github.com/rhdtls3562/"><i class="fab fa-github"></i></a>
+              <a href="https://open.kakao.com/o/shy82g3g"><i class="fa-solid fa-comment"></i></a>
+              <a href="mailto:rhdtls3562@naver.com"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+          <div class="footer-nav">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="#services">Web Development</a></li>
+              <li><a href="#services">Responsive Design</a></li>
+              <li><a href="#services">UI/UX Implementation</a></li>
+              <li><a href="#services">Performance Optimization</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav">
+            <h4>Information</h4>
+            <ul>
+              <li><a href="#about">About</a></li>
+              <li><a href="#projects">Portfolio</a></li>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-contact">
+            <h4>Contact Info</h4>
+            <p><i class="fas fa-envelope"></i> rhdtls3562@naver.com</p>
+            <p><i class="fas fa-phone"></i> +82 10-7906-3994</p>
+            <p><i class="fas fa-map-marker-alt"></i>서울시 강서구 화곡동</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 SEROUM. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
