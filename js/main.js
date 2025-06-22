@@ -2,19 +2,53 @@
 // MODERN PORTFOLIO - INSPIRED BY ADCAPSULE
 // ============================================
 
-// DOM Content Loaded
+// DOM Content Loaded with Performance Optimization
 document.addEventListener("DOMContentLoaded", function () {
-  // Initialize all modules
+  // Critical path initialization
   initLoader();
-  initCursor();
   initNavigation();
-  initHero();
-  initAnimations();
-  initProjects();
-  initSkills();
-  initContactForm();
-  initCounters();
-  initScrollEffects();
+
+  // Defer non-critical initializations
+  requestIdleCallback(() => {
+    initCursor();
+    initHero();
+    initAnimations();
+    initScrollEffects();
+    initBackToTop();
+  });
+
+  // Lazy load sections when they come into view
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.id;
+          switch (sectionId) {
+            case "projects":
+              initProjects();
+              break;
+            case "skills":
+              initSkills();
+              break;
+            case "contact":
+              initContactForm();
+              break;
+            case "about":
+              initCounters();
+              break;
+          }
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { rootMargin: "50px" }
+  );
+
+  // Observe sections for lazy initialization
+  ["projects", "skills", "contact", "about"].forEach((id) => {
+    const section = document.getElementById(id);
+    if (section) observer.observe(section);
+  });
 });
 
 // ============================================
@@ -26,28 +60,28 @@ function initLoader() {
 
   if (!loadingScreen) return;
 
-  // Simulate loading progress
+  // Faster loading progress
   let progress = 0;
   const interval = setInterval(() => {
-    progress += Math.random() * 15;
+    progress += Math.random() * 25; // 더 빠른 진행
     if (progress >= 100) {
       progress = 100;
       clearInterval(interval);
 
-      // Hide loading screen after a short delay
+      // Hide loading screen immediately
       setTimeout(() => {
         loadingScreen.classList.add("hidden");
         // Remove from DOM after transition
         setTimeout(() => {
           loadingScreen.remove();
-        }, 500);
-      }, 500);
+        }, 300); // 더 빠른 제거
+      }, 200); // 더 빠른 숨김
     }
 
     if (loadingProgress) {
       loadingProgress.style.width = progress + "%";
     }
-  }, 100);
+  }, 50); // 더 자주 업데이트
 }
 
 // ============================================
@@ -173,20 +207,6 @@ function initNavigation() {
   const navMenu = document.querySelector(".nav-menu");
   const navLinks = document.querySelectorAll(".nav-link");
 
-  // Scroll header behavior
-  let lastScrollTop = 0;
-  window.addEventListener("scroll", () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-    if (scrollTop > 100) {
-      header.classList.add("scrolled");
-    } else {
-      header.classList.remove("scrolled");
-    }
-
-    lastScrollTop = scrollTop;
-  });
-
   // Mobile menu toggle
   if (hamburger && navMenu) {
     hamburger.addEventListener("click", () => {
@@ -257,7 +277,7 @@ function initHero() {
       if (i < text.length) {
         typingText.textContent += text.charAt(i);
         i++;
-        setTimeout(typeWriter, 100);
+        setTimeout(typeWriter, 50); // 100ms에서 50ms로 변경 (2배 빠르게)
       }
     }
 
@@ -351,6 +371,30 @@ function initAnimations() {
         }
       );
     });
+
+    // Animate project cards
+    gsap.utils.toArray(".project-card").forEach((card, index) => {
+      gsap.fromTo(
+        card,
+        {
+          opacity: 0,
+          y: 30,
+          scale: 0.95,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.6,
+          delay: index * 0.1,
+          scrollTrigger: {
+            trigger: card,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    });
   }
 }
 
@@ -365,56 +409,92 @@ function initProjects() {
       title: "Socialize 소셜 플랫폼",
       category: "웹사이트",
       description: "소셜 네트워킹 서비스 웹사이트 UI/UX 디자인 및 퍼블리싱",
-      technologies: ["HTML5", "CSS3", "JavaScript", "Responsive"],
+      technologies: [
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "Responsive",
+        "Web Design",
+        "UI/UX",
+        "Brand Identity",
+      ],
       image: "img/socilize.jpg",
-      link: "#",
+      link: "https://rhdtls3562.github.io/socialize/",
     },
     {
       id: 2,
-      title: "Binggo PC 게임 플랫폼",
+      title: "chavron 회사 홈페이지",
       category: "웹사이트",
-      description: "온라인 게임 플랫폼 웹사이트 디자인 및 개발",
-      technologies: ["Web Design", "UI/UX", "Gaming Interface"],
-      image: "img/binggo_pc.png",
-      link: "#",
+      description: "회사 홈페이지 웹사이트 디자인 및 개발",
+      technologies: ["Web Design", "UI/UX", "HTML5", "CSS3", "JavaScript"],
+      image: "img/chavron.jpg",
+      link: "https://www.chavron.co.kr/",
     },
     {
       id: 3,
-      title: "학원 홈페이지",
+      title: "Ginigen AI 웹사이트",
       category: "웹사이트",
-      description: "교육기관 홈페이지 디자인 및 반응형 퍼블리싱",
-      technologies: ["Web Design", "HTML/CSS", "Responsive", "Educational"],
-      image: "img/academy_logo.jpg",
-      link: "#",
+      description: "AI 웹사이트 디자인 및 UI/UX 개발",
+      technologies: [
+        "Web Design",
+        "UI/UX",
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "Brand Identity",
+      ],
+      image: "img/ginigen.jpg",
+      link: "https://ginigen.com/",
     },
     {
       id: 4,
-      title: "서연성형외과 홈페이지",
+      title: "학원 홈페이지",
       category: "웹사이트",
-      description: "의료기관 홈페이지 디자인 및 UI/UX 개발",
-      technologies: ["Medical Web", "UI/UX", "Responsive", "Healthcare"],
-      image: "img/27.jpg",
-      link: "#",
+      description: "교육기관 홈페이지 디자인 및 반응형 퍼블리싱",
+      technologies: [
+        "Web Design",
+        "UI/UX",
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "Brand Identity",
+      ],
+      image: "img/study.jpg",
+      link: "https://rhdtls3562.github.io/SEROUM_STUDY_SCHOOL/",
     },
-    
+
     // 브랜딩 프로젝트
     {
       id: 5,
-      title: "AKJ 아카데미 브랜드",
-      category: "브랜딩",
-      description: "교육기관 로고 및 브랜드 아이덴티티 디자인",
-      technologies: ["Illustrator", "Logo Design", "Brand Identity"],
-      image: "img/akj_logo.jpg",
-      link: "#",
+      title: "성형외과 웹사이트",
+      category: "웹사이트",
+      description: "성형외과 웹사이트 디자인 및 반응형 퍼블리싱",
+      technologies: [
+        "Web Design",
+        "UI/UX",
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "Brand Identity",
+      ],
+      image: "img/hospital.jpg",
+      link: "https://rhdtls3562.github.io/SEROUM-HOSPITAL/",
     },
     {
       id: 6,
-      title: "Bekerry 제과점 브랜드",
-      category: "브랜딩",
-      description: "제과제빵 브랜드 로고 및 패키지 디자인",
-      technologies: ["Illustrator", "Package Design", "Brand Strategy"],
-      image: "img/bekerry_logo.jpg",
-      link: "#",
+      title: "IN8 음악 웹사이트",
+      category: "웹사이트",
+      description: "음악 프로듀싱 웹사이트 디자인 및 반응형 퍼블리싱",
+      technologies: [
+        "Web Design",
+        "UI/UX",
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "Brand Identity",
+      ],
+      image: "img/in8.jpg",
+      link: "https://rhdtls3562.github.io/IN8/",
     },
     {
       id: 7,
@@ -423,7 +503,7 @@ function initProjects() {
       description: "마케팅 에이전시 브랜드 디자인 및 회사 소개서",
       technologies: ["Corporate Design", "Brand Identity", "Marketing"],
       image: "img/prmongttang.jpg",
-      link: "#",
+      link: "https://www.prmongddang.com/",
     },
 
     // 디자인 프로젝트
@@ -431,7 +511,7 @@ function initProjects() {
       id: 8,
       title: "카페 브랜드 로고",
       category: "디자인",
-      description: "카페 브랜드 로고 디자인 (작업일 1일, 기여도 100%)",
+      description: "카페 브랜드 로고 디자인",
       technologies: ["Illustrator", "Logo Design", "Typography"],
       image: "img/coffe_logo.jpg",
       link: "#",
@@ -440,36 +520,68 @@ function initProjects() {
       id: 9,
       title: "플라워샵 로고",
       category: "디자인",
-      description: "꽃집 브랜드 로고 디자인 (작업일 1일, 기여도 100%)",
+      description: "꽃집 브랜드 로고 디자인",
       technologies: ["Illustrator", "Floral Design", "Brand Identity"],
       image: "img/flower_logo.jpg",
       link: "#",
     },
     {
       id: 10,
-      title: "웹 배너 디자인",
+      title: "명함 디자인",
       category: "디자인",
-      description: "다양한 웹 배너 디자인 작업물 (작업일 1일, 기여도 100%)",
+      description: "다양한 웹 배너 디자인 작업물",
       technologies: ["Photoshop", "Web Banner", "Digital Design"],
       image: "img/23.jpg",
       link: "#",
     },
     {
       id: 11,
-      title: "편집 디자인 포트폴리오",
-      category: "디자인",
-      description: "전단지 및 편집 디자인 작업물 컬렉션",
-      technologies: ["Photoshop", "Illustrator", "Print Design"],
-      image: "img/18.jpg",
-      link: "#",
+      title: "To Do List 퍼블리싱",
+      category: "웹사이트",
+      description: "To do list 웹사이트 퍼블리싱",
+      technologies: ["Web Design", "UI/UX", "HTML5", "CSS3", "JavaScript"],
+      image: "img/todo.jpg",
+      link: "https://rhdtls3562.github.io/todolist/",
     },
     {
       id: 12,
       title: "제품 굿즈 디자인",
       category: "디자인",
-      description: "제품 디자인 및 굿즈 제작 (작업일 1일, 기여도 100%)",
+      description: "제품 디자인 및 굿즈 제작",
       technologies: ["Product Design", "Illustrator", "Goods Design"],
-      image: "img/316.jpg",
+      image: "img/24.jpg",
+      link: "#",
+    },
+    {
+      id: 13,
+      title: "주짓수 학원 브랜딩",
+      category: "디자인",
+      description: "로고 및 브랜딩 제작",
+      technologies: [
+        "Corporate Design",
+        "Brand Identity",
+        "Marketing",
+        "Logo design",
+      ],
+      image: "img/akj_logo.jpg",
+      link: "https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fakjiujitsu%2Freels%2F&is_from_rle",
+    },
+    {
+      id: 14,
+      title: "제품 굿즈 디자인",
+      category: "디자인",
+      description: "제품 디자인 및 굿즈 제작",
+      technologies: ["Product Design", "Illustrator", "Goods Design"],
+      image: "img/t.gif",
+      link: "#",
+    },
+    {
+      id: 15,
+      title: "제품 굿즈 디자인",
+      category: "디자인",
+      description: "제품 디자인 및 굿즈 제작",
+      technologies: ["Product Design", "Illustrator", "Goods Design"],
+      image: "img/27.jpg",
       link: "#",
     },
   ];
@@ -479,161 +591,73 @@ function initProjects() {
 
   if (!projectsGrid) return;
 
-  // Render projects
+  // 극한 최적화된 렌더링 함수
   function renderProjects(projects) {
-    projectsGrid.innerHTML = projects
-      .map(
-        (project) => `
-      <div class="project-item" data-category="${project.category}">
+    // DocumentFragment 사용으로 리플로우 최소화
+    const fragment = document.createDocumentFragment();
+
+    projects.forEach((project) => {
+      const projectCard = document.createElement("div");
+      projectCard.className = "project-card";
+      projectCard.innerHTML = `
         <div class="project-image">
-          <img src="${project.image}" alt="${project.title}" loading="lazy">
+          <img src="${project.image}" alt="${
+        project.title
+      }" loading="lazy" decoding="async" width="350" height="250">
           <div class="project-overlay">
             <div class="project-links">
-              <a href="${project.link}" class="project-link">
+              <a href="${
+                project.link
+              }" class="project-link" target="_blank" rel="noopener">
                 <i class="fas fa-external-link-alt"></i>
               </a>
             </div>
           </div>
         </div>
-        <div class="project-content">
+        <div class="project-info">
           <h3>${project.title}</h3>
           <p>${project.description}</p>
-          <div class="project-technologies">
+          <div class="project-tech">
             ${project.technologies
-              .map((tech) => `<span class="tech-tag">${tech}</span>`)
+              .map((tech) => `<span>${tech}</span>`)
               .join("")}
           </div>
         </div>
-      </div>
-    `
-      )
-      .join("");
+      `;
+      fragment.appendChild(projectCard);
+    });
 
-    // Add project item styles
-    const style = document.createElement("style");
-    style.textContent = `
-      .project-item {
-        background: var(--light-color);
-        border-radius: 20px;
-        overflow: hidden;
-        box-shadow: var(--shadow-light);
-        transition: var(--transition-normal);
-      }
-      
-      .project-item:hover {
-        transform: translateY(-10px);
-        box-shadow: var(--shadow-heavy);
-      }
-      
-      .project-image {
-        position: relative;
-        overflow: hidden;
-        height: 250px;
-      }
-      
-      .project-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: var(--transition-normal);
-      }
-      
-      .project-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(108, 92, 231, 0.9);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        transition: var(--transition-normal);
-      }
-      
-      .project-item:hover .project-overlay {
-        opacity: 1;
-      }
-      
-      .project-item:hover .project-image img {
-        transform: scale(1.1);
-      }
-      
-      .project-link {
-        width: 50px;
-        height: 50px;
-        background: var(--light-color);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--primary-color);
-        text-decoration: none;
-        font-size: 1.2rem;
-        transition: var(--transition-normal);
-      }
-      
-      .project-link:hover {
-        transform: scale(1.1);
-      }
-      
-      .project-content {
-        padding: 2rem;
-      }
-      
-      .project-content h3 {
-        font-size: var(--font-size-xl);
-        font-weight: 700;
-        color: var(--dark-color);
-        margin-bottom: 1rem;
-      }
-      
-      .project-content p {
-        color: var(--gray-color);
-        margin-bottom: 1.5rem;
-        line-height: 1.6;
-      }
-      
-      .project-technologies {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-      }
-      
-      .tech-tag {
-        background: var(--gray-lighter);
-        color: var(--primary-color);
-        padding: 0.25rem 0.75rem;
-        border-radius: 15px;
-        font-size: var(--font-size-xs);
-        font-weight: 500;
-      }
-    `;
-    document.head.appendChild(style);
+    // 한 번에 DOM 업데이트
+    projectsGrid.innerHTML = "";
+    projectsGrid.appendChild(fragment);
+
+    // GSAP ScrollTrigger 재새로고침 (필터링 후 새로운 카드들에 애니메이션 적용)
+    if (typeof ScrollTrigger !== "undefined") {
+      ScrollTrigger.refresh();
+    }
   }
 
-  // Filter projects
+  // 최적화된 프로젝트 필터링 (부드러운 등장 효과 포함)
   function filterProjects(category) {
     const filteredProjects =
       category === "all"
         ? projectsData
         : projectsData.filter((project) => project.category === category);
 
-    renderProjects(filteredProjects);
+    // 기존 카드들을 페이드아웃 후 새 카드 렌더링
+    const existingCards = document.querySelectorAll(".project-card");
 
-    // Animate project items
-    if (typeof gsap !== "undefined") {
-      gsap.fromTo(
-        ".project-item",
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          stagger: 0.1,
-        }
-      );
+    if (existingCards.length > 0) {
+      existingCards.forEach((card) => {
+        card.style.opacity = "0";
+        card.style.transform = "translateY(-10px) translateZ(0)";
+      });
+
+      setTimeout(() => {
+        renderProjects(filteredProjects);
+      }, 200); // 페이드아웃 완료 후 렌더링
+    } else {
+      renderProjects(filteredProjects);
     }
   }
 
@@ -708,12 +732,9 @@ function initCounters() {
 }
 
 // ============================================
-// CONTACT FORM
+// CONTACT FORM - FormSubmit 서비스 사용
 // ============================================
 function initContactForm() {
-  // EmailJS 초기화
-  emailjs.init("YOUR_PUBLIC_KEY"); // 실제 사용 시 EmailJS 공개 키로 교체
-
   const form = document.getElementById("contact-form");
   const submitBtn = document.getElementById("submit-btn");
   const formStatus = document.getElementById("form-status");
@@ -743,37 +764,65 @@ function initContactForm() {
 
     // 전송 중 상태
     const originalText = submitBtn.innerHTML;
-    submitBtn.innerHTML = '<span>전송 중...</span><i class="fas fa-spinner fa-spin"></i>';
+    submitBtn.innerHTML =
+      '<span>전송 중...</span><i class="fas fa-spinner fa-spin"></i>';
     submitBtn.disabled = true;
 
     try {
-      // EmailJS를 통한 이메일 전송 (임시로 mailto 링크 사용)
+      // FormSubmit을 통한 이메일 전송 (설치 불필요)
       const formData = new FormData(form);
-      const name = formData.get('from_name');
-      const email = formData.get('from_email');
-      const subject = formData.get('subject');
-      const message = formData.get('message');
 
-      // mailto 링크로 기본 이메일 클라이언트 열기
-      const mailtoLink = `mailto:rhdtls3562@naver.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
-        `이름: ${name}\n이메일: ${email}\n\n메시지:\n${message}`
-      )}`;
-      
-      window.location.href = mailtoLink;
+      // 추가 정보 포함
+      formData.append("_subject", "[포트폴리오] 새로운 문의가 도착했습니다");
+      formData.append("_captcha", "false"); // 캡차 비활성화
+      formData.append("_template", "table"); // 테이블 형식으로 이메일 받기
 
-      // 성공 메시지 표시
-      showFormStatus("메시지가 전송되었습니다! 곧 연락드리겠습니다.", "success");
-      
-      // 폼 초기화
-      setTimeout(() => {
-        form.reset();
-        inputs.forEach((input) => (input.style.borderColor = ""));
-        formStatus.style.display = "none";
-      }, 3000);
+      const response = await fetch(
+        "https://formsubmit.co/rhdtls3562@naver.com",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
+      if (response.ok) {
+        // 성공 메시지 표시
+        showFormStatus(
+          "메시지가 성공적으로 전송되었습니다! 곧 연락드리겠습니다.",
+          "success"
+        );
+
+        // 폼 초기화
+        setTimeout(() => {
+          form.reset();
+          inputs.forEach((input) => (input.style.borderColor = ""));
+          formStatus.style.display = "none";
+        }, 3000);
+      } else {
+        throw new Error("전송 실패");
+      }
     } catch (error) {
-      console.error('Error:', error);
-      showFormStatus("전송 중 오류가 발생했습니다. 직접 이메일로 연락해주세요.", "error");
+      console.error("전송 실패:", error);
+
+      // 실패 시 대안으로 mailto 링크 사용
+      const formData = new FormData(form);
+      const name = formData.get("from_name");
+      const email = formData.get("from_email");
+      const subject = formData.get("subject");
+      const message = formData.get("message");
+
+      const mailtoLink = `mailto:rhdtls3562@naver.com?subject=${encodeURIComponent(
+        `[포트폴리오 문의] ${subject}`
+      )}&body=${encodeURIComponent(
+        `이름: ${name}\n이메일: ${email}\n\n메시지:\n${message}\n\n---\n포트폴리오 웹사이트에서 전송됨`
+      )}`;
+
+      window.open(mailtoLink);
+
+      showFormStatus(
+        "이메일 클라이언트가 열렸습니다. 메시지를 확인하고 전송해주세요.",
+        "info"
+      );
     } finally {
       // 버튼 상태 복원
       setTimeout(() => {
@@ -806,42 +855,147 @@ function initContactForm() {
 // ============================================
 // SCROLL EFFECTS
 // ============================================
+// Lenis 스무스 스크롤 초기화 (극한 최적화)
 function initScrollEffects() {
-  // Parallax effect for hero background
-  window.addEventListener("scroll", () => {
-    const scrolled = window.pageYOffset;
-    const parallaxElements = document.querySelectorAll(".floating-shapes");
-
-    parallaxElements.forEach((element) => {
-      const speed = 0.5;
-      element.style.transform = `translateY(${scrolled * speed}px)`;
+  // Lenis 라이브러리로 부드러운 스크롤 구현
+  if (typeof Lenis !== "undefined") {
+    window.lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      direction: "vertical",
+      gestureDirection: "vertical",
+      smooth: true,
+      mouseMultiplier: 1,
+      smoothTouch: false,
+      touchMultiplier: 2,
+      infinite: false,
     });
-  });
 
-  // Reveal animations for elements
-  const revealElements = document.querySelectorAll(
+    function raf(time) {
+      window.lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // 네비게이션 링크에 스무스 스크롤 적용
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute("href"));
+        if (target) {
+          window.lenis.scrollTo(target);
+        }
+      });
+    });
+  }
+
+  // 다른 섹션 요소들의 등장 애니메이션
+  const otherElements = document.querySelectorAll(
     ".stat-item, .service-card, .timeline-item, .contact-item"
   );
 
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = "1";
-          entry.target.style.transform = "translateY(0)";
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.1 }
-  );
+  if (otherElements.length > 0) {
+    const elementObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0) translateZ(0)";
+            elementObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "50px",
+      }
+    );
 
-  revealElements.forEach((element) => {
-    element.style.opacity = "0";
-    element.style.transform = "translateY(30px)";
-    element.style.transition = "opacity 0.6s ease, transform 0.6s ease";
-    revealObserver.observe(element);
+    // 초기 상태 설정 및 관찰 시작
+    otherElements.forEach((element) => {
+      element.style.opacity = "0";
+      element.style.transform = "translateY(20px) translateZ(0)";
+      element.style.transition = "opacity 0.4s ease, transform 0.4s ease";
+      elementObserver.observe(element);
+    });
+  }
+
+  // Featured Projects 섹션 스크롤 애니메이션 추가
+  const projectsSection = document.querySelector("#projects");
+
+  if (projectsSection) {
+    const projectObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // 프로젝트 카드들을 순차적으로 애니메이션
+            const cards = entry.target.querySelectorAll(".project-card");
+            cards.forEach((card, index) => {
+              setTimeout(() => {
+                card.style.opacity = "1";
+                card.style.transform = "translateY(0) translateZ(0)";
+              }, index * 100); // 100ms 간격으로 순차 등장
+            });
+            projectObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "100px",
+      }
+    );
+
+    // 프로젝트 카드들 초기 상태 설정
+    const projectCards = projectsSection.querySelectorAll(".project-card");
+    projectCards.forEach((card) => {
+      card.style.opacity = "0";
+      card.style.transform = "translateY(20px) translateZ(0)";
+      card.style.transition = "opacity 0.4s ease, transform 0.4s ease";
+    });
+
+    // 프로젝트 섹션 관찰 시작
+    projectObserver.observe(projectsSection);
+  }
+}
+
+// ============================================
+// BACK TO TOP BUTTON
+// ============================================
+function initBackToTop() {
+  const backToTopBtn = document.getElementById("backToTop");
+
+  if (!backToTopBtn) return;
+
+  // 스크롤 위치에 따라 버튼 표시/숨김
+  const toggleBackToTop = throttle(() => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > 300) {
+      backToTopBtn.classList.add("visible");
+    } else {
+      backToTopBtn.classList.remove("visible");
+    }
+  }, 100);
+
+  // 스크롤 이벤트 리스너
+  window.addEventListener("scroll", toggleBackToTop);
+
+  // 버튼 클릭 시 맨 위로 스크롤
+  backToTopBtn.addEventListener("click", () => {
+    // Lenis가 있으면 Lenis로 스크롤, 없으면 기본 스크롤
+    if (typeof Lenis !== "undefined" && window.lenis) {
+      window.lenis.scrollTo(0, { duration: 1.5 });
+    } else {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
   });
+
+  // 초기 상태 설정
+  toggleBackToTop();
 }
 
 // ============================================
