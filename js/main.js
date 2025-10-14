@@ -406,48 +406,49 @@ function initProjects() {
     // 웹사이트 프로젝트
     {
       id: 1,
+      title: "아모레 BTS 서비스",
+      category: "웹사이트",
+      description:
+        "아모레퍼시픽 BTS(Beauty Technology Service), 챗봇, 립 AR, 두피 진단 등 뷰티 기술 서비스의 UI/UX 디자인 및 반응형 웹 퍼블리싱",
+      technologies: [
+        "UI/UX Design",
+        "Chatbot Service",
+        "React",
+        "Tailwind",
+        "JavaScript",
+      ],
+      image: "img/bts.png",
+      link: "#",
+    },
+    {
+      id: 15,
       title: "Socialize 소셜 플랫폼",
       category: "웹사이트",
       description: "소셜 네트워킹 서비스 웹사이트 UI/UX 디자인 및 퍼블리싱",
-      technologies: [
-        "HTML5",
-        "CSS3",
-        "JavaScript",
-        "Responsive",
-        "Web Design",
-        "UI/UX",
-        "Brand Identity",
-      ],
+      technologies: ["HTML", "CSS", "JavaScript", "Web Design", "UI/UX"],
       image: "img/socilize.jpg",
       link: "https://rhdtls3562.github.io/socialize/",
     },
     {
-      id: 2,
+      id: 15,
       title: "chavron 회사 홈페이지",
       category: "웹사이트",
       description: "회사 홈페이지 웹사이트 디자인 및 개발",
-      technologies: ["Web Design", "UI/UX", "HTML5", "CSS3", "JavaScript"],
+      technologies: ["Web Design", "React", "Tailwind", "JavaScript"],
       image: "img/chavron.jpg",
       link: "https://www.chavron.co.kr/",
     },
     {
-      id: 3,
+      id: 15,
       title: "Ginigen AI 웹사이트",
       category: "웹사이트",
       description: "AI 웹사이트 디자인 및 UI/UX 개발",
-      technologies: [
-        "Web Design",
-        "UI/UX",
-        "HTML5",
-        "CSS3",
-        "JavaScript",
-        "Brand Identity",
-      ],
+      technologies: ["Web Design", "UI/UX", "HTML", "CSS", "JavaScript"],
       image: "img/ginigen.jpg",
       link: "https://ginigen.com/",
     },
     {
-      id: 4,
+      id: 15,
       title: "학원 홈페이지",
       category: "웹사이트",
       description: "교육기관 홈페이지 디자인 및 반응형 퍼블리싱",
@@ -465,7 +466,7 @@ function initProjects() {
 
     // 브랜딩 프로젝트
     {
-      id: 5,
+      id: 15,
       title: "성형외과 웹사이트",
       category: "웹사이트",
       description: "성형외과 웹사이트 디자인 및 반응형 퍼블리싱",
@@ -481,7 +482,7 @@ function initProjects() {
       link: "https://rhdtls3562.github.io/SEROUM-HOSPITAL/",
     },
     {
-      id: 6,
+      id: 15,
       title: "IN8 음악 웹사이트",
       category: "웹사이트",
       description: "음악 프로듀싱 웹사이트 디자인 및 반응형 퍼블리싱",
@@ -497,7 +498,7 @@ function initProjects() {
       link: "https://rhdtls3562.github.io/IN8/",
     },
     {
-      id: 7,
+      id: 15,
       title: "PR몽땅 기업 브랜딩",
       category: "브랜딩",
       description: "마케팅 에이전시 브랜드 디자인 및 회사 소개서",
@@ -508,7 +509,7 @@ function initProjects() {
 
     // 디자인 프로젝트
     {
-      id: 8,
+      id: 15,
       title: "카페 브랜드 로고",
       category: "디자인",
       description: "카페 브랜드 로고 디자인",
@@ -517,7 +518,7 @@ function initProjects() {
       link: "#",
     },
     {
-      id: 9,
+      id: 15,
       title: "플라워샵 로고",
       category: "디자인",
       description: "꽃집 브랜드 로고 디자인",
@@ -526,7 +527,7 @@ function initProjects() {
       link: "#",
     },
     {
-      id: 10,
+      id: 15,
       title: "명함 디자인",
       category: "디자인",
       description: "다양한 웹 배너 디자인 작업물",
@@ -535,16 +536,7 @@ function initProjects() {
       link: "#",
     },
     {
-      id: 11,
-      title: "To Do List 퍼블리싱",
-      category: "웹사이트",
-      description: "To do list 웹사이트 퍼블리싱",
-      technologies: ["Web Design", "UI/UX", "HTML5", "CSS3", "JavaScript"],
-      image: "img/todo.jpg",
-      link: "https://rhdtls3562.github.io/todolist/",
-    },
-    {
-      id: 12,
+      id: 15,
       title: "제품 굿즈 디자인",
       category: "디자인",
       description: "제품 디자인 및 굿즈 제작",
@@ -553,7 +545,7 @@ function initProjects() {
       link: "#",
     },
     {
-      id: 13,
+      id: 15,
       title: "주짓수 학원 브랜딩",
       category: "디자인",
       description: "로고 및 브랜딩 제작",
@@ -567,7 +559,7 @@ function initProjects() {
       link: "https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fakjiujitsu%2Freels%2F&is_from_rle",
     },
     {
-      id: 14,
+      id: 15,
       title: "제품 굿즈 디자인",
       category: "디자인",
       description: "제품 디자인 및 굿즈 제작",
@@ -604,15 +596,6 @@ function initProjects() {
           <img src="${project.image}" alt="${
         project.title
       }" loading="lazy" decoding="async" width="350" height="250">
-          <div class="project-overlay">
-            <div class="project-links">
-              <a href="${
-                project.link
-              }" class="project-link" target="_blank" rel="noopener">
-                <i class="fas fa-external-link-alt"></i>
-              </a>
-            </div>
-          </div>
         </div>
         <div class="project-info">
           <h3>${project.title}</h3>
