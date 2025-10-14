@@ -406,8 +406,8 @@ function initProjects() {
     // 웹사이트 프로젝트
     {
       id: 1,
-      title: "아모레 BTS 서비스",
-      category: "웹사이트",
+      title: "아모레 BTS 프로젝트 퍼블리싱",
+      category: "프로젝트",
       description:
         "아모레퍼시픽 BTS(Beauty Technology Service), 챗봇, 립 AR, 두피 진단 등 뷰티 기술 서비스의 UI/UX 디자인 및 반응형 웹 퍼블리싱",
       technologies: [
@@ -422,7 +422,7 @@ function initProjects() {
     },
     {
       id: 15,
-      title: "Socialize 소셜 플랫폼",
+      title: "Socialize 의류 플랫폼 퍼블리싱",
       category: "웹사이트",
       description: "소셜 네트워킹 서비스 웹사이트 UI/UX 디자인 및 퍼블리싱",
       technologies: ["HTML", "CSS", "JavaScript", "Web Design", "UI/UX"],
@@ -431,7 +431,7 @@ function initProjects() {
     },
     {
       id: 15,
-      title: "chavron 회사 홈페이지",
+      title: "chavron 회사 홈페이지 퍼블리싱",
       category: "웹사이트",
       description: "회사 홈페이지 웹사이트 디자인 및 개발",
       technologies: ["Web Design", "React", "Tailwind", "JavaScript"],
@@ -440,7 +440,7 @@ function initProjects() {
     },
     {
       id: 15,
-      title: "Ginigen AI 웹사이트",
+      title: "Ginigen AI 웹사이트 디자인 및 퍼블리싱",
       category: "웹사이트",
       description: "AI 웹사이트 디자인 및 UI/UX 개발",
       technologies: ["Web Design", "UI/UX", "HTML", "CSS", "JavaScript"],
@@ -449,7 +449,7 @@ function initProjects() {
     },
     {
       id: 15,
-      title: "학원 홈페이지",
+      title: "학원 디자인 및 퍼블리싱",
       category: "웹사이트",
       description: "교육기관 홈페이지 디자인 및 반응형 퍼블리싱",
       technologies: [
@@ -467,7 +467,7 @@ function initProjects() {
     // 브랜딩 프로젝트
     {
       id: 15,
-      title: "성형외과 웹사이트",
+      title: "성형외과 디자인 및 퍼블리싱",
       category: "웹사이트",
       description: "성형외과 웹사이트 디자인 및 반응형 퍼블리싱",
       technologies: [
@@ -483,7 +483,7 @@ function initProjects() {
     },
     {
       id: 15,
-      title: "IN8 음악 웹사이트",
+      title: "음반제작 회사 디자인 및 퍼블리싱",
       category: "웹사이트",
       description: "음악 프로듀싱 웹사이트 디자인 및 반응형 퍼블리싱",
       technologies: [
@@ -499,7 +499,7 @@ function initProjects() {
     },
     {
       id: 15,
-      title: "PR몽땅 기업 브랜딩",
+      title: "기업 브랜딩",
       category: "브랜딩",
       description: "마케팅 에이전시 브랜드 디자인 및 회사 소개서",
       technologies: ["Corporate Design", "Brand Identity", "Marketing"],
@@ -510,8 +510,8 @@ function initProjects() {
     // 디자인 프로젝트
     {
       id: 15,
-      title: "카페 브랜드 로고",
-      category: "디자인",
+      title: "카페 브랜딩",
+      category: "브랜딩",
       description: "카페 브랜드 로고 디자인",
       technologies: ["Illustrator", "Logo Design", "Typography"],
       image: "img/coffe_logo.jpg",
@@ -519,8 +519,8 @@ function initProjects() {
     },
     {
       id: 15,
-      title: "플라워샵 로고",
-      category: "디자인",
+      title: "꽃집 브랜딩",
+      category: "브랜딩",
       description: "꽃집 브랜드 로고 디자인",
       technologies: ["Illustrator", "Floral Design", "Brand Identity"],
       image: "img/flower_logo.jpg",
@@ -537,7 +537,7 @@ function initProjects() {
     },
     {
       id: 15,
-      title: "제품 굿즈 디자인",
+      title: "제품 디자인",
       category: "디자인",
       description: "제품 디자인 및 굿즈 제작",
       technologies: ["Product Design", "Illustrator", "Goods Design"],
@@ -547,7 +547,7 @@ function initProjects() {
     {
       id: 15,
       title: "주짓수 학원 브랜딩",
-      category: "디자인",
+      category: "브랜딩",
       description: "로고 및 브랜딩 제작",
       technologies: [
         "Corporate Design",
@@ -560,7 +560,7 @@ function initProjects() {
     },
     {
       id: 15,
-      title: "제품 굿즈 디자인",
+      title: "제품 디자인",
       category: "디자인",
       description: "제품 디자인 및 굿즈 제작",
       technologies: ["Product Design", "Illustrator", "Goods Design"],
@@ -569,7 +569,7 @@ function initProjects() {
     },
     {
       id: 15,
-      title: "제품 굿즈 디자인",
+      title: "제품 디자인",
       category: "디자인",
       description: "제품 디자인 및 굿즈 제작",
       technologies: ["Product Design", "Illustrator", "Goods Design"],
