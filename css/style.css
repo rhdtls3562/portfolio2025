@@ -562,6 +562,7 @@ section {
   font-size: var(--font-size-lg);
   color: var(--light-color);
   position: relative;
+  letter-spacing: 0.05rem !important;
 }
 
 .typing-text::after {
@@ -1367,6 +1368,7 @@ section {
   font-weight: 700;
   color: var(--primary-color);
   margin-bottom: 0.5rem;
+  font-weight: 800 !important;
 }
 
 .timeline-position {
