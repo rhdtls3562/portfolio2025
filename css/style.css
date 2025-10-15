@@ -1677,7 +1677,7 @@ section {
 /* Testimonials Section */
 .testimonials {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("../img/316.jpg");
+    url("../img/55.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -1868,7 +1868,7 @@ section {
   margin-bottom: 1rem;
   background: var(--gradient-primary);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: white;
   background-clip: text;
 }
 
