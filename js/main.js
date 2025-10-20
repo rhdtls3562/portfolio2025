@@ -418,7 +418,7 @@ function initProjects() {
         "JavaScript",
       ],
       image: "img/bts.png",
-      link: "#",
+      link: "https://i-dev-beautytech.amorepacific.com/login/",
     },
     {
       id: 15,
@@ -506,7 +506,7 @@ function initProjects() {
       description: "마케팅 에이전시 브랜드 디자인 및 회사 소개서",
       technologies: ["Corporate Design", "Brand Identity", "Marketing"],
       image: "img/prmongttang.jpg",
-      link: "https://www.prmongddang.com/",
+      link: "img/피알몽땅 제안서.pdf",
     },
 
     // 디자인 프로젝트
@@ -598,6 +598,11 @@ function initProjects() {
           <img src="${project.image}" alt="${
         project.title
       }" loading="lazy" decoding="async" width="350" height="250">
+          ${
+            project.link && project.link !== "#"
+              ? '<div class="project-link-icon"><i class="fas fa-external-link-alt"></i></div>'
+              : ""
+          }
         </div>
         <div class="project-info">
           <h3>${project.title}</h3>
@@ -609,6 +614,22 @@ function initProjects() {
           </div>
         </div>
       `;
+
+      // 프로젝트 카드 클릭 이벤트 추가
+      projectCard.addEventListener("click", () => {
+        if (project.link && project.link !== "#") {
+          // PDF 파일인 경우 새 탭에서 열기
+          if (project.link.endsWith(".pdf")) {
+            window.open(project.link, "_blank");
+          } else {
+            window.open(project.link, "_blank");
+          }
+        }
+      });
+
+      // 클릭 가능한 커서 스타일 추가
+      projectCard.style.cursor = "pointer";
+
       fragment.appendChild(projectCard);
     });
 
